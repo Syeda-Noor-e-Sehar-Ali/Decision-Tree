@@ -1,2 +1,3 @@
 # Decision-Tree
-In this code I have implemented Decision Tree Algorithm.
+In this code I have implemented Decision Tree Algorithm.A Decision Tree is a supervised learning algorithm used for both classification and regression tasks. Here's a concise explanation:
+Start with the entire dataset as the root. At each node, split the data based on the feature that results in the most homogeneous subgroups using criteria like Gini impurity or information gain. Repeat this process recursively for each child node, creating branches. Continue until all nodes are pure (contain only one class) or another stopping criterion is met (like maximum depth or minimum samples per leaf). Each leaf node represents a class label or a continuous value. This structure enables decision-making by traversing from the root to a leaf based on feature values.
