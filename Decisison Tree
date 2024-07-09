@@ -1,0 +1,48 @@
+**Import Libraries**
+
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn import tree
+**Load Dataset**
+df = pd.read_csv("/content/drive/MyDrive/Semester projects/Semester 5/Semester 5 AI/AI Lab 5/titanic.csv")
+df.head()
+
+**Division of Target Variable and Independent Variables**
+
+x = df[['Sex','Age','SibSp','Fare']]
+
+x
+
+y = df['Survived']
+
+y
+
+**Label Encoding**
+
+le_Sex = LabelEncoder()
+le_Age = LabelEncoder()
+le_Fare = LabelEncoder()
+le_SibSp= LabelEncoder()
+
+x['Sex_n'] = le_Sex.fit_transform(x['Sex'])
+x['Age_n'] = le_Age.fit_transform(x['Age'])
+x['Fare_n'] = le_Fare.fit_transform(x['Fare'])
+x['SibSp_n'] = le_SibSp.fit_transform(x['SibSp'])
+
+x
+
+x_n = x.drop(['Sex','Age','SibSp','Fare'],axis='columns')
+
+x_n
+
+y
+
+**Import our Decision Tree Model**
+
+model = tree.DecisionTreeClassifier()
+
+**Model Fiting**
+
+model.fit(x_n, y)
+
+model.score(x_n, y)
